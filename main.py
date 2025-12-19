@@ -1,4 +1,4 @@
-from stats import get_num_words, get_character_counts
+from stats import get_num_words, get_character_counts, get_sorted_dictionary
 
 
 def get_book_text(filepath: str):
@@ -18,6 +18,11 @@ def main():
 
     character_counts = get_character_counts(file_contents)
     print(character_counts)
+
+    sorted_dictionary = get_sorted_dictionary(character_counts)
+    for detail in sorted_dictionary:
+        if detail["char"].isalpha():
+            print(f"{detail['char']}: {detail['num']}")
 
 
 main()
